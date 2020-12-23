@@ -105,6 +105,20 @@ import {Wipoid} from './wipoid';
 import {Xbox} from './xbox';
 import {Zotac} from './zotac';
 import {logger} from '../../logger';
+// import des Magasins Francais PS5
+import {Micromania} from './micromania';
+import {Leclerc} from './leclerc';
+import {Cdiscount} from './cdiscount';
+import {Auchan} from './auchan';
+import {Carrefour} from './carrefour';
+import {Superu} from './superu';
+import {Rdc} from './rdc';
+import {Fnac} from './fnac';
+import {Darty} from './darty';
+import {Cultura} from './cultura';
+// import {Intermarche} from './intermarche';
+import {Boulanger} from './boulanger';
+
 
 export const storeList = new Map([
 	[AComPC.name, AComPC],
@@ -116,7 +130,6 @@ export const storeList = new Map([
 	[AmazonDe.name, AmazonDe],
 	[AmazonDeWarehouse.name, AmazonDeWarehouse],
 	[AmazonEs.name, AmazonEs],
-	[AmazonFr.name, AmazonFr],
 	[AmazonNl.name, AmazonNl],
 	[AmazonUk.name, AmazonUk],
 	[AmazonIt.name, AmazonIt],
@@ -210,7 +223,21 @@ export const storeList = new Map([
 	[WalmartCa.name, WalmartCa],
 	[Wipoid.name, Wipoid],
 	[Xbox.name, Xbox],
-	[Zotac.name, Zotac]
+	[Zotac.name, Zotac],
+	// France PS5
+	[Micromania.name, Micromania],
+	[AmazonFr.name, AmazonFr],
+	[Leclerc.name, Leclerc],
+	[Cdiscount.name, Cdiscount],
+	[Auchan.name, Auchan],
+	[Carrefour.name, Carrefour],
+	[Superu.name, Superu],
+	// [Intermarche.name, Intermarche],
+	[Boulanger.name, Boulanger],
+	[Fnac.name, Fnac],
+	[Rdc.name, Rdc],
+	[Darty.name, Darty],
+	[Cultura.name, Cultura]
 ]);
 
 const brands = new Set();
@@ -243,7 +270,7 @@ function filterBrandsSeriesModels() {
 function printConfig() {
 	if (config.store.stores.length > 0) {
 		logger.info(
-			`ℹ selected stores: ${config.store.stores
+			`ℹ Liste des magasins selectionnés: ${config.store.stores
 				.map((store) => store.name)
 				.join(', ')}`
 		);
@@ -251,13 +278,13 @@ function printConfig() {
 
 	if (config.store.showOnlyBrands.length > 0) {
 		logger.info(
-			`ℹ selected brands: ${config.store.showOnlyBrands.join(', ')}`
+			`ℹ Liste des marques selectionnées: ${config.store.showOnlyBrands.join(', ')}`
 		);
 	}
 
 	if (config.store.showOnlyModels.length > 0) {
 		logger.info(
-			`ℹ selected models: ${config.store.showOnlyModels
+			`ℹ Listes des models selectionnés: ${config.store.showOnlyModels
 				.map((entry) => {
 					return entry.series
 						? entry.name + ' (' + entry.series + ')'
@@ -269,7 +296,7 @@ function printConfig() {
 
 	if (config.store.showOnlySeries.length > 0) {
 		logger.info(
-			`ℹ selected series: ${config.store.showOnlySeries.join(', ')}`
+			`ℹ Liste des series selectionnées: ${config.store.showOnlySeries.join(', ')}`
 		);
 	}
 }

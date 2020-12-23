@@ -62,7 +62,7 @@ export const Print = {
 				'✖ ' +
 				buildProductString(link, store, true) +
 				' :: ' +
-				chalk.yellow(`STATUS CODE ERROR ${statusCode}`)
+				chalk.yellow(`Erreur :> ${statusCode}`)
 			);
 		}
 
@@ -126,11 +126,11 @@ export const Print = {
 				'ℹ ' +
 				buildProductString(link, store, true) +
 				' :: ' +
-				chalk.yellow('IN STOCK, WAITING')
+				chalk.yellow('En stock, Vite')
 			);
 		}
 
-		return `ℹ ${buildProductString(link, store)} :: IN STOCK, WAITING`;
+		return `ℹ ${buildProductString(link, store)} :: En stock, Vite`;
 	},
 	maxPrice(
 		link: Link,
@@ -188,11 +188,11 @@ export const Print = {
 				'✖ ' +
 				buildProductString(link, store, true) +
 				' :: ' +
-				chalk.red('OUT OF STOCK')
+				chalk.red('Produit Indisponible')
 			);
 		}
 
-		return `✖ ${buildProductString(link, store)} :: OUT OF STOCK`;
+		return `✖ ${buildProductString(link, store)} :: Produit Indisponible`;
 	},
 	productInStock(link: Link): string {
 		let productString = `Product Page: ${link.url}`;
@@ -232,8 +232,9 @@ function buildSetupString(
 function buildProductString(link: Link, store: Store, color?: boolean): string {
 	if (color) {
 		return (
-			chalk.cyan(`[${store.name}]`) +
-			chalk.grey(` [${link.brand} (${link.series})] ${link.model}`)
+			chalk.cyan(`[${store.name.toUpperCase()}]`) +
+			chalk.grey(` => ${link.model}`)
+			// chalk.grey(` [${link.brand} (${link.series})] ${link.model}`)
 		);
 	}
 
